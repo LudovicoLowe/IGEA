@@ -8,10 +8,10 @@
 		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sincrono.sio</groupId>
-	<artifactId>SIO_Source</artifactId>
+	<groupId>ideagroup</groupId>
+	<artifactId>IGEA_Source</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SIO_Source</name>
+	<name>IGEA_Source</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
