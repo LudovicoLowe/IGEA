@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IgeaSourceApplication {
+public class SioSourceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IgeaSourceApplication.class, args);
+		SpringApplication.run(SioSourceApplication.class, args);
 	}
 
 }
