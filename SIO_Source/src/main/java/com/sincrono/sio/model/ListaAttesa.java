@@ -1,5 +1,6 @@
 package com.sincrono.sio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,10 @@ public class ListaAttesa {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fornitore_id;
 	
+	@Column(name="id_paziente")
 	private Integer id_paziente;
+	
+	@Column(name="id_reparto")
 	private Integer id_reparto;
 	
 	public ListaAttesa() {

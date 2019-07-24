@@ -1,4 +1,4 @@
-package com.sincrono.model;
+package com.sincrono.sio.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
