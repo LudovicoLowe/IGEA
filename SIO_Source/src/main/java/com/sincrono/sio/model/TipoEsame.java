@@ -10,10 +10,12 @@ import javax.persistence.Table;
 @Table(name="tipo_esame")
 public class TipoEsame {
 	
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id_tipo_esame;
 	String tipo;
+	Integer id_reparto;
+	
 	public TipoEsame(Integer id_tipo_esame, String tipo) {
 		super();
 		this.id_tipo_esame = id_tipo_esame;
@@ -38,9 +40,4 @@ public class TipoEsame {
 		this.tipo = tipo;
 	}
 	
-	
-	
-	
-	
-
 }
