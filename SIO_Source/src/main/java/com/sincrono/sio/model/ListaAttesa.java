@@ -1,5 +1,6 @@
 package com.sincrono.sio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,19 +10,22 @@ import javax.persistence.Table;
 @Entity
 @Table( name = "lista_attesa" )
 public class ListaAttesa {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer fornitore_id;
 	
+	@Column (name = "id_paziente")
 	private Integer id_paziente;
+	
+	@Column (name = "id_reparto")
 	private Integer id_reparto;
 	
-	public ListaAttesa() {
-		
-	}
+	public ListaAttesa() {}
 	
 	public ListaAttesa(Integer fornitore_id, Integer id_paziente, Integer id_reparto) {
 		super();
+		
 		this.fornitore_id = fornitore_id;
 		this.id_paziente = id_paziente;
 		this.id_reparto = id_reparto;

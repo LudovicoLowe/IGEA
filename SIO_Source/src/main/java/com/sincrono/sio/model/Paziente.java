@@ -37,14 +37,17 @@ public class Paziente {
 			@Column(name="email")
 			private String email;
 
+			@Column(name = "diagnosi")
+			private String diagnosi;
 			
 			public Paziente() {
 				super();
 			}
 
 			public Paziente(Integer id_paziente, String nome, String cognome, String cod_fis, String data_nascita,
-					String residenza, String telefono, String email) {
+					String residenza, String telefono, String email, String diagnosi) {
 				super();
+				
 				this.id_paziente = id_paziente;
 				this.nome = nome;
 				this.cognome = cognome;
@@ -53,6 +56,7 @@ public class Paziente {
 				this.residenza = residenza;
 				this.telefono = telefono;
 				this.email = email;
+				this.diagnosi = diagnosi;
 			}
 
 			public Integer getId_paziente() {

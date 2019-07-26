@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name= "ricovero")
 public class Ricovero {
 	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  
 	private Integer id_ricovero;
@@ -25,22 +24,26 @@ public class Ricovero {
 	@Column(name="data_ricovero")
 	private String data_ricovero;
 	
-	@Column(name="diagnosi")
-	private String diagnosi;
+	@Column(name="data_dimissione")
+	private String data_dimissione;
+	
+	@Column(name="dimesso")
+	private Integer dimesso;
 
 	public Ricovero() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Ricovero(Integer id_ricovero, Integer id_paziente, Integer id_reparto, String data_ricovero,
-			String diagnosi) {
+			String data_dimissione, Integer dimesso) {
 		super();
+		
 		this.id_ricovero = id_ricovero;
 		this.id_paziente = id_paziente;
 		this.id_reparto = id_reparto;
 		this.data_ricovero = data_ricovero;
-		this.diagnosi = diagnosi;
+		this.data_dimissione = data_dimissione;
+		this.dimesso = dimesso;
 	}
 
 	public Integer getId_ricovero() {
@@ -75,12 +78,20 @@ public class Ricovero {
 		this.data_ricovero = data_ricovero;
 	}
 
-	public String getDiagnosi() {
-		return diagnosi;
+	public String getData_dimissione() {
+		return data_dimissione;
 	}
 
-	public void setDiagnosi(String diagnosi) {
-		this.diagnosi = diagnosi;
+	public void setData_dimissione(String data_dimissione) {
+		this.data_dimissione = data_dimissione;
+	}
+
+	public Integer getDimesso() {
+		return dimesso;
+	}
+
+	public void setDimesso(Integer dimesso) {
+		this.dimesso = dimesso;
 	}
 
 }

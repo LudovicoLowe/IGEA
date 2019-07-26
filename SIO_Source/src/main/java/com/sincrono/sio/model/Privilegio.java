@@ -14,8 +14,10 @@ public class Privilegio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_privilegio;
+	
 	@Column(name="tipo")
 	private String tipo_privilegio;
+	
 	@Column(name="descr")
 	private String descrizione;
 	
@@ -47,4 +49,5 @@ public class Privilegio {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+	
 }

@@ -1,5 +1,6 @@
 package com.sincrono.sio.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,11 @@ public class TipoEsame {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id_tipo_esame;
+	
+	@Column (name = "tipo")
 	String tipo;
+	
+	@Column (name = "id_reparto")
 	Integer id_reparto;
 	
 	public TipoEsame(Integer id_tipo_esame, String tipo) {

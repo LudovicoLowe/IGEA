@@ -43,5 +43,4 @@ public class TipoFornitore {
 		this.categoria = categoria;
 	}
 	
-	
 }

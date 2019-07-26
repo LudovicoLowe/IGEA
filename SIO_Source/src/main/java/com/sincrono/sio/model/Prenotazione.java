@@ -8,21 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "visita")
-public class Visita {
+@Table(name= "prenotazione")
+public class Prenotazione {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  
-	private Integer id_visita;
+	private Integer id_prenotazione;
 	
 	@Column(name="id_paziente")
 	private Integer id_paziente;
-
-	@Column(name="id_reparto")
-	private Integer id_reparto;
 	
 	@Column(name="id_ricetta")
 	private Integer id_ricetta;
+	
+	@Column(name="id_dipendente")
+	private Integer id_dipendente;
 	
 	@Column(name="data")
 	private String data;
@@ -33,29 +33,29 @@ public class Visita {
 	@Column(name="esito")
 	private String esito;
 
-	public Visita(Integer id_paziente, Integer id_reparto, Integer id_ricetta, String data, Integer id_fascia_oraria,
-			String esito) {
+	public Prenotazione(Integer id_prenotazione, Integer id_paziente, Integer id_ricetta, Integer id_dipendente,
+			String data, Integer id_fascia_oraria, String esito) {
 		super();
+		
+		this.id_prenotazione = id_prenotazione;
 		this.id_paziente = id_paziente;
-		this.id_reparto = id_reparto;
 		this.id_ricetta = id_ricetta;
+		this.id_dipendente = id_dipendente;
 		this.data = data;
 		this.id_fascia_oraria = id_fascia_oraria;
 		this.esito = esito;
-		
-	
 	}
 
-	public Visita() {
+	public Prenotazione() {
 		super();
 	}
 
-	public Integer getId_visita() {
-		return id_visita;
+	public Integer getId_prenotazione() {
+		return id_prenotazione;
 	}
 
-	public void setId_visita(Integer id_visita) {
-		this.id_visita = id_visita;
+	public void setId_prenotazione(Integer id_prenotazione) {
+		this.id_prenotazione = id_prenotazione;
 	}
 
 	public Integer getId_paziente() {
@@ -66,20 +66,20 @@ public class Visita {
 		this.id_paziente = id_paziente;
 	}
 
-	public Integer getId_reparto() {
-		return id_reparto;
-	}
-
-	public void setId_reparto(Integer id_reparto) {
-		this.id_reparto = id_reparto;
-	}
-
 	public Integer getId_ricetta() {
 		return id_ricetta;
 	}
 
 	public void setId_ricetta(Integer id_ricetta) {
 		this.id_ricetta = id_ricetta;
+	}
+
+	public Integer getId_dipendente() {
+		return id_dipendente;
+	}
+
+	public void setId_dipendente(Integer id_dipendente) {
+		this.id_dipendente = id_dipendente;
 	}
 
 	public String getData() {
@@ -105,10 +105,5 @@ public class Visita {
 	public void setEsito(String esito) {
 		this.esito = esito;
 	}
-	
-	
-	
-	
-	
 	
 }

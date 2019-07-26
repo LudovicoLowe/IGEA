@@ -14,12 +14,15 @@ public class Reparto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_reparto;
+	
 	@Column(name="nome")
 	private String nome_reparto;
+	
 	@Column(name="n_posti_tot")
-	private int numeri_postiT;
+	private int numeri_posti_tot;
+	
 	@Column(name="n_post_disp")
-	private int numeri_postiD;
+	private int numeri_posti_disp;
 	
 	public Reparto() {
 		super();
@@ -28,8 +31,8 @@ public class Reparto {
 	public Reparto(int id_reparto, String nome_reparto, int numeri_postiT, int numeri_postiD) {
 		super();
 		this.nome_reparto = nome_reparto;
-		this.numeri_postiT = numeri_postiT;
-		this.numeri_postiD = numeri_postiD;
+		this.numeri_posti_tot = numeri_postiT;
+		this.numeri_posti_disp = numeri_postiD;
 	}
 	
 	public int getId_reparto() {
@@ -44,17 +47,17 @@ public class Reparto {
 	public void setNome_reparto(String nome_reparto) {
 		this.nome_reparto = nome_reparto;
 	}
-	public int getNumeri_postiT() {
-		return numeri_postiT;
+	public int getNumeri_posti_tot() {
+		return numeri_posti_tot;
 	}
-	public void setNumeri_postiT(int numeri_postiT) {
-		this.numeri_postiT = numeri_postiT;
+	public void setNumeri_posti_tot(int numeri_posti_tot) {
+		this.numeri_posti_tot = numeri_posti_tot;
 	}
-	public int getNumeri_postiD() {
-		return numeri_postiD;
+	public int getNumeri_posti_disp() {
+		return numeri_posti_disp;
 	}
-	public void setNumeri_postiD(int numeri_postiD) {
-		this.numeri_postiD = numeri_postiD;
+	public void setNumeri_posti_disp(int numeri_posti_disp) {
+		this.numeri_posti_disp = numeri_posti_disp;
 	}
 	
 }
