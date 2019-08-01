@@ -49,5 +49,13 @@ public class Privilegio {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+
+	public String getTipo_privilegio() {
+		return tipo_privilegio;
+	}
+
+	public void setTipo_privilegio(String tipo_privilegio) {
+		this.tipo_privilegio = tipo_privilegio;
+	}
 	
 }

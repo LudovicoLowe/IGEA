@@ -114,4 +114,20 @@ public class Paziente {
 			public void setTelefono(String telefono) {
 				this.telefono = telefono;
 			}
+
+			public String getEmail() {
+				return email;
+			}
+
+			public void setEmail(String email) {
+				this.email = email;
+			}
+
+			public String getDiagnosi() {
+				return diagnosi;
+			}
+
+			public void setDiagnosi(String diagnosi) {
+				this.diagnosi = diagnosi;
+			}
 }
