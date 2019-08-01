@@ -2,9 +2,29 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Gestione Forniture</title>
+<script src="../js/scripts.js"></script>
 </head>
-<body>
-
+<body onload="">
+	<section class="menu">
+		<h1>TU ZIO</h1>
+		<br/><hr><br/>
+	</section>
+	<section>
+		<b>LISTA FORNITORI</b><div align="right"><button onclick='case_dispatcher("genera_form_fornitore")'>+</button></div>
+		<table>
+			<tr><td>{Nessun Fornitore Registrato}</td></tr>
+		</table>
+		<br/><hr><br/>
+	</section>
+	<section>
+		<form id="add_fornitore" action="/add_fornitore" method="post" onsubmit="">
+		</form>
+		<br/><hr><br/>
+	</section>
+	<section>
+		<a href="admin_home.html">Torna alla Home</a>
+		<br/><hr><br/>
+	</section>
 </body>
 </html>
