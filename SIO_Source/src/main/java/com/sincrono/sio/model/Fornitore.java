@@ -13,7 +13,7 @@ public class Fornitore {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer fornitore_id;
+	private Integer id_fornitore;
 	
 	@Column (name = "ragione_sociale")
 	private String ragione_sociale;
@@ -35,11 +35,11 @@ public class Fornitore {
 	
 	public Fornitore() {}
 	
-	public Fornitore(Integer fornitore_id, String ragione_sociale, String p_iva, Integer id_tipo_fornitore,
+	public Fornitore(Integer id_fornitore, String ragione_sociale, String p_iva, Integer id_tipo_fornitore,
 			String telefono, String sede, String catalogo) {
 		super();
 		
-		this.fornitore_id = fornitore_id;
+		this.id_fornitore = id_fornitore;
 		this.ragione_sociale = ragione_sociale;
 		this.p_iva = p_iva;
 		this.id_tipo_fornitore = id_tipo_fornitore;
@@ -49,11 +49,11 @@ public class Fornitore {
 	}
 
 	public Integer getFornitore_id() {
-		return fornitore_id;
+		return id_fornitore;
 	}
 
 	public void setFornitore_id(Integer fornitore_id) {
-		this.fornitore_id = fornitore_id;
+		this.id_fornitore = fornitore_id;
 	}
 
 	public String getRagione_sociale() {

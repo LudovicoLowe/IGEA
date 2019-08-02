@@ -13,8 +13,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.sincrono.sio.model.Fornitore;
+import com.sincrono.sio.model.FornitoreService;
 import com.sincrono.sio.model.TipoFornitore;
 import com.sincrono.sio.model.TipoFornitoreService;
 
@@ -34,38 +38,42 @@ public class MainController {
 		return "admin/admin_home";
 	}
 	
-	@RequestMapping(value = "add_fornitore", method = {RequestMethod.POST, RequestMethod.GET})
-	public String add_fornitore(String ragione_sociale, String p_iva) {
-		
-		return "admin/forniture";
-	}
-	
 	@Autowired
 	TipoFornitoreService tfs;
 	
-	@RequestMapping(value = "genera_form_fornitore", method = {RequestMethod.POST, RequestMethod.GET})
-	public @ResponseBody String generate_form_fornitore() {
-		System.out.println("TEST");
-		
-		String s="";
-		s+="Ragione Sociale: <input name='rs' type='text' pattern='[a-zA-Z]{2,20}' required/><span class='pattern_view'>{Campo Alfabetico}</span><br/>";
-		s+="Prtita Iva: <input name='pi' type='text' pattern='[0-9]{11}' required/><span class='pattern_view'>{Campo Numerico - 11 cifre}</span><br/>";
-		s+="Tipo Fornitore: <select name='typo'>";
-		TipoFornitore t;
-		String tmp;
+	@RequestMapping(value = "all_tipo_fornitore", method = RequestMethod.GET)
+	public @ResponseBody String all_tipo_fornitore() {
+		Gson gson=new Gson();
 		List<TipoFornitore> l=tfs.findAll();
-		Iterator<TipoFornitore> it=l.iterator();
-		while(it.hasNext()) {
-			t=it.next();
-			tmp=t.getCategoria();
-			s+="<option value='"+tmp+"'>"+tmp+"</option>";
-		}
-		s+="</select><br/>";
-		s+="Telefono: +<input name='tel' type='text' pattern='[0-9]{13}' required/><span class='pattern_view'>{Campo Numerico - 13 cifre}</span><br/>";
-		s+="Sede: <input name='sede' type='text' pattern='[a-zA-Z0-9,]{,30}' required/><span class='pattern_view'>{Campo Alfanumerico - massimo 30 caratteri}</span><br/>";
-		s+="Link Catalogo: <input name='link_cat' type='text' maxlength='200' required/><span class='pattern_view'>{massimo 200 caratteri}</span><br/>";
-		s+="<input type='submit' value='Aggiungi Fornitore'> <input type='reset' value='Resetta Campi'><br/>";
+		String s=gson.toJson(l);
 		
 		return s;
 	}
+	
+	@Autowired
+	FornitoreService fs;
+	
+	@RequestMapping(value = "all_fornitori", method = RequestMethod.GET)
+	public @ResponseBody String all_fornitori() {
+		Gson gson=new Gson();
+		List<Fornitore> l=fs.findAll();
+		String s=gson.toJson(l);
+		
+		return s;
+	}
+	
+	@RequestMapping(value = "add_fornitore", method = RequestMethod.POST)
+	public @ResponseBody String add_fornitore(@RequestParam("rs") String rs,
+							  @RequestParam("pi") String p_iva,
+							  @RequestParam("typo") String typo,
+							  @RequestParam("tel") String tel,
+							  @RequestParam("sede") String sede,
+							  @RequestParam("link_cat") String link_cat) {
+		fs.addFornitore(rs, p_iva, tfs.findByCategoria(typo).getId_tipo_fornitore(), "+"+tel, sede, link_cat);
+		String msg="Il seguente Fornitore è stato aggiunto all'archivio: "+rs;
+		msg+="<br/><a href='view/admin/forniture.html'>Dajjee</a> (cit. Adelmo)<br/>";
+		
+		return msg;
+	}
+	
 }

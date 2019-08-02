@@ -5,22 +5,31 @@
 <title>Gestione Forniture</title>
 <script src="../js/scripts.js"></script>
 </head>
-<body onload="">
+<body onload='case_dispatcher("genera_tabella_fornitori")'>
 	<section class="menu">
 		<h1>TU ZIO</h1>
 		<br/><hr><br/>
 	</section>
 	<section>
 		<b>LISTA FORNITORI</b><div align="right"><button onclick='case_dispatcher("genera_form_fornitore")'>+</button></div>
-		<table>
+		<table id="lista_fornitori" border="1" style="border: solid; width: 100%">
 			<tr><td>{Nessun Fornitore Registrato}</td></tr>
 		</table>
 		<br/><hr><br/>
 	</section>
-	<section>
-		<form id="add_fornitore" action="/add_fornitore" method="post" onsubmit="">
+	<section id="add_fornitore" style="visibility: hidden">
+		<form action='/add_fornitore' method='post' onsubmit=''>
+			Ragione Sociale: <input name='rs' type='text' pattern='[a-zA-Z ]{2,20}' required/><span class='pattern_view'>{Campo Alfabetico - minimo 2 massimo 20 caratteri}</span><br/>
+			Prtita Iva: <input name='pi' type='text' pattern='[0-9]{11}' required/><span class='pattern_view'>{Campo Numerico - 11 cifre}</span><br/>
+			Tipo Fornitore: <select id="typo_fornitore" name='typo'></select><br/>
+			Telefono: +<input name='tel' type='text' pattern='[0-9]{13}' required/><span class='pattern_view'>{Campo Numerico - 13 cifre}</span><br/>
+			Sede: <input name='sede' type='text' pattern='[a-zA-Z0-9, ]{,30}' required/><span class='pattern_view'>{Campo Alfanumerico - massimo 30 caratteri}</span><br/>
+			Link Catalogo: <input name='link_cat' type='text' maxlength='200' required/><span class='pattern_view'>{massimo 200 caratteri}</span><br/>
+			<input type='submit' value='Aggiungi Fornitore'> <input type='reset' value='Resetta Campi'><br/>
 		</form>
 		<br/><hr><br/>
+	</section>
+	<section id="msg_zone">
 	</section>
 	<section>
 		<a href="admin_home.html">Torna alla Home</a>
